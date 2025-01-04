@@ -1,4 +1,5 @@
 const express = require('express');
+const roupaRouter = require('./src/routes/roupaRouter');
 const app = express();
 
 try {
@@ -9,6 +10,9 @@ try {
     app.get('/', (req, res) => {
         res.send('Servidor funcionando!');
     });
+
+    //roupas 
+    app.use('/roupas', roupaRouter);
     
     // porta
     const PORT = 3000;

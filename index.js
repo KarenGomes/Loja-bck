@@ -1,5 +1,6 @@
 const express = require('express');
 const roupaRouter = require('./src/routes/roupaRouter');
+const usuarioRouter = require('./src/routes/usuarioRouter');
 const app = express();
 
 try {
@@ -13,6 +14,9 @@ try {
 
     //roupas 
     app.use('/roupas', roupaRouter);
+
+    //usuarios
+    app.use('/usuarios', usuarioRouter);
     
     // porta
     const PORT = 3000;

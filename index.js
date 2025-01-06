@@ -1,6 +1,8 @@
 const express = require('express');
+const authenticateToken = require('./src/middlewares/auth');
 const roupaRouter = require('./src/routes/roupaRouter');
 const usuarioRouter = require('./src/routes/usuarioRouter');
+const loginRouter = require('./src/routes/authRouter');
 const app = express();
 
 try {
@@ -13,10 +15,13 @@ try {
     });
 
     //roupas 
-    app.use('/roupas', roupaRouter);
+    app.use('/roupas', authenticateToken, roupaRouter);
 
     //usuarios
-    app.use('/usuarios', usuarioRouter);
+    app.use('/usuarios', authenticateToken, usuarioRouter);
+
+    //login
+    app.use('/auth', loginRouter);
     
     // porta
     const PORT = 3000;

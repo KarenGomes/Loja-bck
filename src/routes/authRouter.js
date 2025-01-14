@@ -41,8 +41,8 @@ router.post('/login', async (req, res) => {
             return res.status(404).send('Senha ou e-mail inválido');
         }
 
-        const token = jwt.sign({id: result.id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRATION});
-        console.log(`jwt secret: ${process.env.JWT_SECRET}`);
+        const token = jwt.sign({id: result[0].id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRATION});
+        console.log(`jwt secret: ${process.env.JWT_SECRET}, ${result[0]}`);
         res.status(200).json({token});
     } catch (error) {
         console.error('Erro ao fazer login: ', error.message);

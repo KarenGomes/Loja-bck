@@ -5,6 +5,12 @@ const usuarioRouter = require('./src/routes/usuarioRouter');
 const carrinhoRouter = require('./src/routes/carrinhoRouter');
 const loginRouter = require('./src/routes/authRouter');
 const app = express();
+const cors = require('cors');
+
+app.use(cors({ 
+    origin: 'http://localhost:4200',
+    credentials: true // Permitir envio de cookies ou cabeçalhos de autenticação
+}));
 
 try {
     // Middleware para JSON

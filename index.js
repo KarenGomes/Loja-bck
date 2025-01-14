@@ -6,6 +6,8 @@ const carrinhoRouter = require('./src/routes/carrinhoRouter');
 const loginRouter = require('./src/routes/authRouter');
 const app = express();
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocs = require('./swagger-config'); 
 
 app.use(cors({ 
     origin: 'http://localhost:4200',
@@ -15,6 +17,9 @@ app.use(cors({
 try {
     // Middleware para JSON
     app.use(express.json());
+
+    // Integração do Swagger
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     
     //rotas 
     app.get('/', (req, res) => {
@@ -37,6 +42,7 @@ try {
     const PORT = 3000;
     app.listen(PORT, () => {
         console.log(`Servidor rodando na porta ${PORT}`);
+        console.log(`Documentação disponível em http://localhost:${PORT}/api-docs`);
     });
 } catch (error) {
     console.error('Erro ao iniciar o servidor: ', error);   

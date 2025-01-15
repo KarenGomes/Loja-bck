@@ -1,0 +1,33 @@
+CREATE TABLE `usuario` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `endereco` varchar(256) DEFAULT NULL,
+  `contato` varchar(45) DEFAULT NULL,
+  `metodoPagamento` json DEFAULT NULL,
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `senha` varchar(265) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `roupa` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `descricao` varchar(256) NOT NULL,
+  `preco` double NOT NULL,
+  `imagens` json DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `carrinho` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `usuarioId` int NOT NULL,
+  `roupaId` int NOT NULL,
+  `quantidade` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuarioId` (`usuarioId`),
+  KEY `roupaId` (`roupaId`),
+  CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `carrinho_ibfk_2` FOREIGN KEY (`roupaId`) REFERENCES `roupa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+

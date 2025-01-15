@@ -22,8 +22,6 @@ O sistema utiliza criptografia para proteger as senhas dos usuários. As senhas 
 
 ## ⚙️ Configuração de Ambiente
 
-## ⚙️ Configuração de Ambiente
-
 O projeto utiliza um arquivo `.env` para armazenar variáveis de ambiente, que está incluído no `.gitignore` para proteger informações sensíveis. Este arquivo contém os seguintes parâmetros:
 
 - **DB_HOST**: Endereço do host do banco de dados.

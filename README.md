@@ -44,4 +44,6 @@ Para rodar o projeto localmente, siga os seguintes passos:
 2. Instale as dependências com o comando:
    ```bash
    npm install
-3. Rode com `npm run dev` para utilizar o nodemon.
+3. Crie as tabelas copiando os scripts do arquivo `database_create_table`
+4. Crie e configure o `.env`
+5. Rode com `npm run dev` para utilizar o nodemon.

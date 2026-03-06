@@ -22,8 +22,6 @@ O sistema utiliza criptografia para proteger as senhas dos usuários. As senhas 
 
 ## ⚙️ Configuração de Ambiente
 
-## ⚙️ Configuração de Ambiente
-
 O projeto utiliza um arquivo `.env` para armazenar variáveis de ambiente, que está incluído no `.gitignore` para proteger informações sensíveis. Este arquivo contém os seguintes parâmetros:
 
 - **DB_HOST**: Endereço do host do banco de dados.
@@ -42,8 +40,13 @@ Para rodar o projeto localmente, siga os seguintes passos:
 
 1. Clone o repositório.
 2. Instale as dependências com o comando:
+   
    ```bash
    npm install
-3. Crie as tabelas copiando os scripts do arquivo `database_create_table`
-4. Crie e configure o `.env`
-5. Rode com `npm run dev` para utilizar o nodemon.
+
+4. Crie as tabelas copiando os scripts do arquivo `database_create_table`
+5. Crie e configure o `.env`
+6. Para utilizar o nodemon, utilize:
+   
+   ```bash
+   npm run dev

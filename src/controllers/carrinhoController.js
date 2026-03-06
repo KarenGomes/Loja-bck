@@ -14,6 +14,23 @@ async function getCarrinho(usuarioId) {
     }
 }
 
+async function adicionarCarrinho(usuarioId, roupaId, quantidade) {
+    const query = `
+        INSERT INTO carrinho (usuarioId, roupaId, quantidade)
+        VALUES (?, ?, ?)
+    `;
+
+    const [result] = await db.execute(query, [usuarioId, roupaId, quantidade]);
+
+    return {
+        id: result.insertId,
+        usuarioId,
+        roupaId,
+        quantidade
+    };
+}
+
 module.exports = {
     getCarrinho,
+    adicionarCarrinho
 }

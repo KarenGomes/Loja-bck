@@ -1,5 +1,6 @@
 const express = require('express');
 const {getCarrinho} = require('../controllers/carrinhoController');
+const {adicionarCarrinho} = require('../controllers/carrinhoController');
 const authenticateToken = require('../middlewares/auth');
 const router = express.Router();
 
